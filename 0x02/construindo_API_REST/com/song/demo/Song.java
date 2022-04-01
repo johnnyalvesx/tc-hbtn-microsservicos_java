@@ -58,4 +58,29 @@ public class Song {
     public void setAnoLancamento(String anoLancamento) {
 	this.anoLancamento = anoLancamento;
     }
+
+    @Override
+    public int hashCode() {
+	return Objects.hash(album, anoLancamento, artista, id, nome);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	Song other = (Song) obj;
+	return Objects.equals(album, other.album) && Objects.equals(anoLancamento, other.anoLancamento)
+		&& Objects.equals(artista, other.artista) && Objects.equals(id, other.id)
+		&& Objects.equals(nome, other.nome);
+    }
+
+    @Override
+    public String toString() {
+	return "Song [id=" + id + ", nome=" + nome + ", artista=" + artista + ", album=" + album + ", anoLancamento="
+		+ anoLancamento + "]";
+    }
 }
